@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const app = express();
+// Автоматически заполняем базу при запуске
+const seedDatabase = require('../prisma/seed');
 const prisma = new PrismaClient();
 const PORT = process.env.PORT || 5000;
 

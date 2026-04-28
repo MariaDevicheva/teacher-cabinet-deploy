@@ -1113,7 +1113,18 @@ function StudentCabinet({ user, profile, onLogout }) {
                           {app.teacherName || app.teacher}
                         </h4>
                         <p className={`text-xs mb-3 ${theme.textMuted}`}>Подана: {app.date}</p>
-                        <button onClick={() => cancelApplicationHandler(app.id)} className={`text-xs px-3 py-1.5 rounded-lg ${isDark ? 'bg-red-600/20 text-red-400 border border-red-500/30' : 'bg-red-50 text-red-600 border border-red-200'}`}>Отменить заявку</button>
+                        <button 
+  onClick={() => cancelApplicationHandler(app.id)} 
+  style={isDark ? { 
+    backgroundColor: '#6B7280', 
+    color: '#FFFFFF', 
+    border: '1px solid #9CA3AF',
+    fontWeight: '500'
+  } : {}}
+  className={`text-xs px-3 py-1.5 rounded-lg transition-all hover:scale-105 ${isDark ? 'hover:bg-[#4B5563]' : 'bg-red-50 text-red-600 border border-red-200'}`}
+>
+  Отменить заявку
+</button>
                       </div>
                     ))}
                     {applications.filter(app => app.status === 'approved').map(app => (
