@@ -1629,7 +1629,13 @@ function StudentCabinet({ user, profile, onLogout }) {
             <p className={`mb-6 ${theme.textSecondary}`}>Записаться к {selectedTeacher.fullName}?</p>
             <div className="flex gap-3">
               <button onClick={confirmApply} className={`flex-1 py-3 rounded-xl font-medium text-white transition-all hover:scale-105 ${isDark ? 'bg-[#A78BFA]' : 'bg-[#2563EB]'}`}>Подтвердить</button>
-              <button onClick={() => setShowConfirmModal(false)} className={`flex-1 py-3 rounded-xl transition-all hover:scale-105 ${theme.card}`}>Отмена</button>
+              <button 
+  onClick={() => setShowConfirmModal(false)} 
+  style={isDark ? { color: '#FFFFFF' } : {}}
+  className={`flex-1 py-3 rounded-xl transition-all hover:scale-105 ${theme.card}`}
+>
+  Отмена
+</button>
             </div>
           </div>
         </div>
