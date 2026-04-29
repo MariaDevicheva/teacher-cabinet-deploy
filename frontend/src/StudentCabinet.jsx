@@ -1725,9 +1725,9 @@ function StudentCabinet({ user, profile, onLogout }) {
       <div className="fixed bottom-0 left-0 right-0 z-40 flex justify-center pb-3 sm:pb-4 pt-2">
         <div className={`rounded-full px-1.5 sm:px-2 py-1.5 sm:py-2 shadow-2xl ${theme.bottomBar}`}>
           <div className="flex items-center gap-0.5 sm:gap-1">
-            {['home', 'services', 'check', 'profile'].map(id => {
-              const icons = { home: HomeIcon, services: ServicesIcon, check: CheckIcon, profile: ProfileIcon };
-              const labels = { home: 'Главная', services: 'Сервисы', check: 'Проверка', profile: 'Профиль' };
+            {['home', 'course', 'services', 'profile'].map(id => {
+              const icons = { home: HomeIcon, course: CourseIcon, services: ServicesIcon, profile: ProfileIcon };
+              const labels = { home: 'Главная', course: 'Курс', services: 'Сервисы', profile: 'Профиль' };
               const Icon = icons[id];
               return (
                 <button key={id} onClick={() => setActiveTab(id)} className={`relative px-3 sm:px-5 py-1.5 sm:py-2 rounded-full transition-all duration-200 flex flex-col items-center`}>
