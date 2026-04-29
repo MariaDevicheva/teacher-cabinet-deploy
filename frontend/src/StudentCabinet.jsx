@@ -1708,18 +1708,36 @@ function StudentCabinet({ user, profile, onLogout }) {
         </div>
       )}
 
-      <div className="fixed bottom-0 left-0 right-0 z-40 pt-2 pb-4 sm:pb-6 px-3 sm:px-4" style={{ backgroundColor: isDark ? '#121218' : '#FFFFFF' }}>
-  <div className={`rounded-full px-1.5 sm:px-2 py-1.5 sm:py-2 shadow-2xl mx-auto w-fit ${theme.bottomBar}`}>
-          <div className="flex items-center gap-1">
-            {['home', 'course', 'services', 'profile'].map(id => {
-              const icons = { home: HomeIcon, course: CourseIcon, services: ServicesIcon, profile: ProfileIcon };
-              const labels = { home: 'Главная', course: 'Курс', services: 'Сервисы', profile: 'Профиль' };
+          {/* Градиентное размытие под панелью навигации */}
+      <div className="fixed bottom-0 left-0 right-0 h-28 sm:h-32 z-30 pointer-events-none" 
+        style={{ 
+          background: isDark 
+            ? 'linear-gradient(to top, rgba(18,18,24,0.95) 0%, rgba(18,18,24,0.85) 15%, rgba(18,18,24,0.5) 40%, rgba(18,18,24,0.1) 70%, rgba(18,18,24,0) 100%)' 
+            : 'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 15%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0.1) 70%, rgba(255,255,255,0) 100%)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 100%)',
+          WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 100%)'
+        }}>
+      </div>
+
+      {/* Панель навигации */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 flex justify-center pb-3 sm:pb-4 pt-2">
+        <div className={`rounded-full px-1.5 sm:px-2 py-1.5 sm:py-2 shadow-2xl ${theme.bottomBar}`}>
+          <div className="flex items-center gap-0.5 sm:gap-1">
+            {['home', 'services', 'check', 'profile'].map(id => {
+              const icons = { home: HomeIcon, services: ServicesIcon, check: CheckIcon, profile: ProfileIcon };
+              const labels = { home: 'Главная', services: 'Сервисы', check: 'Проверка', profile: 'Профиль' };
               const Icon = icons[id];
               return (
-                <button key={id} onClick={() => setActiveTab(id)} className={`relative px-5 py-2 rounded-full transition-all duration-200 flex flex-col items-center`}>
+                <button key={id} onClick={() => setActiveTab(id)} className={`relative px-3 sm:px-5 py-1.5 sm:py-2 rounded-full transition-all duration-200 flex flex-col items-center`}>
                   <Icon active={activeTab === id} isDark={isDark} />
-                  <span className={`text-xs font-medium mt-0.5 ${activeTab === id ? (isDark ? 'text-[#A78BFA]' : 'text-[#2563EB]') : theme.textMuted}`}>{labels[id]}</span>
-                  {activeTab === id && <span className={`absolute bottom-[-4px] w-1 h-1 rounded-full ${isDark ? 'bg-[#A78BFA]' : 'bg-[#2563EB]'}`} />}
+                  <span className={`text-[10px] sm:text-xs font-medium mt-0.5 ${activeTab === id ? (isDark ? 'text-[#A78BFA]' : 'text-[#2563EB]') : (isDark ? 'text-gray-400' : 'text-gray-500')}`}>
+                    {labels[id]}
+                  </span>
+                  {activeTab === id && (
+                    <span className={`absolute bottom-[-4px] w-1 h-1 rounded-full ${isDark ? 'bg-[#A78BFA]' : 'bg-[#2563EB]'}`} />
+                  )}
                 </button>
               );
             })}
