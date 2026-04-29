@@ -1189,9 +1189,11 @@ function TeacherCabinet({ user, profile, onLogout }) {
   const HomeScreen = () => (
     <div className="space-y-4 fade-in">
       <div className={`${isDark ? 'bg-[#1E1E2A] border-[#2A2A3A]' : 'bg-[#F8FAFC] border-gray-200'} rounded-2xl border p-5`}>
-        <h2 className={`font-semibold text-lg flex items-center ${theme.text}`}><NewsIcon isDark={isDark} />Добрый день, {profile.full_name.split(' ').slice(1).join(' ')}!</h2>
-        <p className={`text-sm ${theme.textSecondary}`}>{profile.position} • {profile.department}</p>
-      </div>
+  <h2 className={`font-semibold text-lg flex items-center ${theme.text}`}>
+    <NewsIcon isDark={isDark} />
+    Добрый день, {profile.full_name.split(' ').slice(1).join(' ')}!
+  </h2>
+</div>
       <div className="flex items-center justify-between">
         <h3 className={`font-semibold text-lg flex items-center ${theme.text}`}><MegaphoneIcon isDark={isDark} />Новости</h3>
         <button onClick={() => setIsDark(!isDark)} className={`p-2 rounded-full transition ${isDark ? 'bg-[#1E1E2A] text-[#A78BFA]' : 'bg-gray-200 text-gray-600'}`}>{isDark ? <SunIcon /> : <MoonIcon />}</button>
@@ -1569,7 +1571,7 @@ function TeacherCabinet({ user, profile, onLogout }) {
   );
 
   return (
-    <div className={`min-h-screen pb-24 relative ${theme.bg}`}><style>{scrollbarCSS}</style>
+    <div className={`min-h-screen pb-28 sm:pb-24 relative ${theme.bg}`}><style>{scrollbarCSS}</style>
       <div className={`px-4 py-4 sticky top-0 z-30 border-b ${theme.header}`}><div className="max-w-3xl mx-auto"><h1 className={`text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r ${isDark ? 'from-[#A78BFA] via-[#C4B5FD] to-[#A78BFA]' : 'from-[#2563EB] via-[#3B82F6] to-[#2563EB]'}`}>РТУ МИРЭА • Преподаватель</h1></div></div>
       <div className="max-w-3xl mx-auto px-4 py-6 tab-content">
         {activeTab === 'home' && <HomeScreen />}
@@ -1791,8 +1793,8 @@ function TeacherCabinet({ user, profile, onLogout }) {
       )}
 
       {/* Нижняя панель навигации */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 flex justify-center pb-6 px-4">
-        <div className={`rounded-full px-2 py-2 shadow-2xl ${theme.bottomBar}`}>
+      <div className="fixed bottom-0 left-0 right-0 z-40 flex justify-center pb-4 sm:pb-6 px-3 sm:px-4" style={{ backgroundColor: isDark ? '#121218' : '#FFFFFF' }}>
+  <div className={`rounded-full px-1.5 sm:px-2 py-1.5 sm:py-2 shadow-2xl ${theme.bottomBar}`}>
           <div className="flex items-center gap-1">
             {['home', 'services', 'check', 'profile'].map(id => {
               const icons = { home: HomeIcon, services: ServicesIcon, check: CheckIcon, profile: ProfileIcon };

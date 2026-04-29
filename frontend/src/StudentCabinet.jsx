@@ -1708,8 +1708,8 @@ function StudentCabinet({ user, profile, onLogout }) {
         </div>
       )}
 
-      <div className="fixed bottom-0 left-0 right-0 z-40 flex justify-center pb-6 px-4">
-        <div className={`rounded-full px-2 py-2 shadow-2xl ${theme.bottomBar}`}>
+      <div className="fixed bottom-0 left-0 right-0 z-40 pt-2 pb-4 sm:pb-6 px-3 sm:px-4" style={{ backgroundColor: isDark ? '#121218' : '#FFFFFF' }}>
+  <div className={`rounded-full px-1.5 sm:px-2 py-1.5 sm:py-2 shadow-2xl mx-auto w-fit ${theme.bottomBar}`}>
           <div className="flex items-center gap-1">
             {['home', 'course', 'services', 'profile'].map(id => {
               const icons = { home: HomeIcon, course: CourseIcon, services: ServicesIcon, profile: ProfileIcon };
